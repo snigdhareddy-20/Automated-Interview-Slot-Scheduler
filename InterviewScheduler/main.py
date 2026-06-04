@@ -1,4 +1,5 @@
 from models import Student
+from greedy_scheduler import greedy_scheduler
 from search_scheduler import dfs_scheduler
 from csp_scheduler import csp_scheduler
 from utils import print_schedule
@@ -38,6 +39,20 @@ for slot in extra_slots:
         slots.append(slot)
 
 print("\nAvailable Slots:", slots)
+
+# GREEDY SCHEDULER
+
+print("\n===== GREEDY SCHEDULER =====")
+
+start = time.time()
+
+greedy_result = greedy_scheduler(students, slots)
+
+end = time.time()
+
+print_schedule(greedy_result)
+
+print(f"Time Taken: {end - start:.6f} seconds")
 
 # SEARCH BASED SCHEDULER
 
